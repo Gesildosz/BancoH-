@@ -1051,20 +1051,22 @@ tr:hover {
 // NOVO: Registra o plugin datalabels globalmente
 Chart.register(ChartDataLabels);
 
-let overtimeData = []; // Variável global para armazenar os dados do Excel
-let currentConsultedRecord = null; // NOVO: Armazena o registro do colaborador consultado
-let totalOvertimeChartInstance = null; // NOVO: Instância do gráfico de saldo total
-let positiveOvertimeChartInstance = null; // NOVO: Instância do gráfico de horas positivas
-let leaderOvertimeChartInstance = null; // NOVO: Instância do gráfico de horas por líder
-// NOVO: Variável global para armazenar o histórico de saldo por colaborador
-let employeeHistory = {}; // { "CHAPA": [{ date: "YYYY-MM-DD", totalMinutes: N, positiveMinutes: M }, ...] }
-// NOVO: Variável global para armazenar usuários registrados e suas senhas
+// Variáveis globais para armazenar os dados do Excel e histórico
+// Carrega dados do localStorage ou inicializa como vazio
+let overtimeData = JSON.parse(localStorage.getItem('overtimeData')) || []; 
+let employeeHistory = JSON.parse(localStorage.getItem('employeeHistory')) || {}; 
 let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || {};
-let chapaBeingProcessed = null; // NOVO: Armazena a chapa que está passando pelo fluxo de cadastro/recuperação
-let pendingUserDataChanges = null; // NOVO: Armazena as alterações pendentes para confirmação de token
-let generatedToken = null; // NOVO: Armazena o token gerado
-let tokenTimer = null; // NOVO: ID do setInterval para o timer do token
-let tokenExpirationTime = null; // NOVO: Timestamp de expiração do token
+
+let currentConsultedRecord = null; 
+let totalOvertimeChartInstance = null; 
+let positiveOvertimeChartInstance = null; 
+let leaderOvertimeChartInstance = null; 
+
+let chapaBeingProcessed = null; 
+let pendingUserDataChanges = null; 
+let generatedToken = null; 
+let tokenTimer = null; 
+let tokenExpirationTime = null; 
 
 
 // Define as colunas que são esperadas e que devem ser exibidas
@@ -1120,10 +1122,6 @@ const registrationErrorMessage = document.getElementById('registrationErrorMessa
 // NOVO: Elementos do Modal de Definição de Senha
 const passwordSetupModalOverlay = document.getElementById('passwordSetupModalOverlay');
 const closePasswordSetupModalButton = document.getElementById('closePasswordSetupModalButton');
-// Removido: const newPasswordInput = document.getElementById('newPassword');
-// Removido: const confirmPasswordInput = document.getElementById('confirmPassword');
-// Removido: const secretPhraseInput = document.getElementById('secretPhrase'); // NOVO
-// Removido: const confirmSecretPhraseInput = document.getElementById('updateConfirmSecretPhrase'); // NOVO
 const setPasswordButton = document.getElementById('setPasswordButton');
 const passwordSetupErrorMessage = document.getElementById('passwordSetupErrorMessage');
 
@@ -2867,12 +2865,13 @@ resendTokenButton.addEventListener('click', () => {
 
 
 // Desabilita botões de busca e visualização até que um arquivo seja carregado
-searchButtonModal.disabled = true;
-showAllButton.disabled = true;
-printPdfButton.disabled = true; // NOVO: Desabilita o botão de PDF por padrão
-searchByCargoButton.disabled = true; // NOVO: Desabilita o botão de busca por cargo por padrão
-sendWhatsappButton.disabled = true; // NOVO: Desabilita o botão de WhatsApp por padrão
-downloadSpecificPdfButton.disabled = true; // NOVO: Desabilita o botão de download específico por padrão
+// A condição agora verifica se overtimeData já tem dados carregados do localStorage
+searchButtonModal.disabled = (overtimeData.length === 0);
+showAllButton.disabled = (overtimeData.length === 0);
+printPdfButton.disabled = (overtimeData.length === 0); 
+searchByCargoButton.disabled = (overtimeData.length === 0); 
+sendWhatsappButton.disabled = (overtimeData.length === 0); 
+downloadSpecificPdfButton.disabled = (overtimeData.length === 0); 
 
 uploadButton.addEventListener('click', () => {
     console.log('uploadButton: Clicado');
@@ -2905,19 +2904,18 @@ uploadButton.addEventListener('click', () => {
                 const firstSheetName = workbook.SheetNames[0];
                 const worksheet = workbook.Sheets[firstSheetName];
 
-                overtimeData = XLSX.utils.sheet_to_json(worksheet, { raw: false });
+                const newOvertimeData = XLSX.utils.sheet_to_json(worksheet, { raw: false });
 
-                if (overtimeData.length === 0) {
+                if (newOvertimeData.length === 0) {
                     uploadStatus.textContent = 'Arquivo Excel vazio ou sem dados válidos.';
                     uploadStatus.className = 'error';
-                    overtimeData = [];
-                    searchButtonModal.disabled = true;
-                    showAllButton.disabled = true;
-                    printPdfButton.disabled = true; // NOVO: Desabilita o botão de PDF
-                    searchByCargoButton.disabled = true; // NOVO: Desabilita o botão de busca por cargo
-                    sendWhatsappButton.disabled = true; // NOVO: Desabilita o botão de WhatsApp
-                    downloadSpecificPdfButton.disabled = true; // NOVO: Desabilita o botão de download específico
-                    // NOVO: Limpa o gráfico de líderes se o arquivo estiver vazio
+                    // Não limpa overtimeData aqui, apenas se o arquivo for inválido
+                    searchButtonModal.disabled = (overtimeData.length === 0);
+                    showAllButton.disabled = (overtimeData.length === 0);
+                    printPdfButton.disabled = (overtimeData.length === 0); 
+                    searchByCargoButton.disabled = (overtimeData.length === 0); 
+                    sendWhatsappButton.disabled = (overtimeData.length === 0); 
+                    downloadSpecificPdfButton.disabled = (overtimeData.length === 0); 
                     if (leaderOvertimeChartInstance) {
                         leaderOvertimeChartInstance.destroy();
                         leaderOvertimeChartInstance = null;
@@ -2925,20 +2923,19 @@ uploadButton.addEventListener('click', () => {
                     return;
                 }
 
-                const firstRowKeys = Object.keys(overtimeData[0]);
+                const firstRowKeys = Object.keys(newOvertimeData[0]);
                 const hasAllRequiredColumns = REQUIRED_DISPLAY_COLUMNS.every(col => firstRowKeys.includes(col));
 
                 if (!hasAllRequiredColumns) {
                     uploadStatus.textContent = `Erro: O arquivo Excel não possui todas as colunas essenciais (${REQUIRED_DISPLAY_COLUMNS.join(', ')}). Verifique a grafia.`;
                     uploadStatus.className = 'error';
-                    overtimeData = [];
-                    searchButtonModal.disabled = true;
-                    showAllButton.disabled = true;
-                    printPdfButton.disabled = true; // NOVO: Desabilita o botão de PDF
-                    searchByCargoButton.disabled = true; // NOVO: Desabilita o botão de busca por cargo
-                    sendWhatsappButton.disabled = true; // NOVO: Desabilita o botão de WhatsApp
-                    downloadSpecificPdfButton.disabled = true; // NOVO: Desabilita o botão de download específico
-                    // NOVO: Limpa o gráfico de líderes se as colunas estiverem faltando
+                    // Não limpa overtimeData aqui, apenas se o arquivo for inválido
+                    searchButtonModal.disabled = (overtimeData.length === 0);
+                    showAllButton.disabled = (overtimeData.length === 0);
+                    printPdfButton.disabled = (overtimeData.length === 0); 
+                    searchByCargoButton.disabled = (overtimeData.length === 0); 
+                    sendWhatsappButton.disabled = (overtimeData.length === 0); 
+                    downloadSpecificPdfButton.disabled = (overtimeData.length === 0); 
                     if (leaderOvertimeChartInstance) {
                         leaderOvertimeChartInstance.destroy();
                         leaderOvertimeChartInstance = null;
@@ -2946,18 +2943,35 @@ uploadButton.addEventListener('click', () => {
                     return;
                 }
 
-                uploadStatus.textContent = `Arquivo "${file.name}" carregado com sucesso! ${overtimeData.length} registros encontrados.`;
+                // NOVO: Lógica de mesclagem de dados
+                const existingDataMap = new Map(overtimeData.map(record => [String(record.CHAPA), record]));
+                
+                newOvertimeData.forEach(newRecord => {
+                    const chapa = String(newRecord.CHAPA);
+                    if (existingDataMap.has(chapa)) {
+                        // Atualiza o registro existente
+                        const existingRecord = existingDataMap.get(chapa);
+                        Object.assign(existingRecord, newRecord); // Mescla as propriedades
+                    } else {
+                        // Adiciona o novo registro
+                        existingDataMap.set(chapa, newRecord);
+                    }
+                });
+                overtimeData = Array.from(existingDataMap.values()); // Converte o mapa de volta para array
+                localStorage.setItem('overtimeData', JSON.stringify(overtimeData)); // Salva overtimeData no localStorage
+
+                uploadStatus.textContent = `Arquivo "${file.name}" carregado e mesclado com sucesso! Total de ${overtimeData.length} registros.`;
                 uploadStatus.className = 'success';
                 searchButtonModal.disabled = false;
                 showAllButton.disabled = false;
-                printPdfButton.disabled = false; // NOVO: Habilita o botão de PDF
-                searchByCargoButton.disabled = false; // NOVO: Habilita o botão de busca por cargo
-                sendWhatsappButton.disabled = false; // NOVO: Habilita o botão de WhatsApp
-                downloadSpecificPdfButton.disabled = false; // NOVO: Habilita o botão de download específico
+                printPdfButton.disabled = false; 
+                searchByCargoButton.disabled = false; 
+                sendWhatsappButton.disabled = false; 
+                downloadSpecificPdfButton.disabled = false; 
                 
                 // NOVO: Adiciona os dados do upload ao histórico
                 const today = new Date().toISOString().slice(0, 10); // Formato YYYY-MM-DD
-                overtimeData.forEach(record => {
+                overtimeData.forEach(record => { // Itera sobre os dados mesclados
                     const chapa = String(record.CHAPA);
                     const saldoMinutes = timeToMinutes(record['Saldo Final']);
                     const positiveMinutes = Math.max(0, saldoMinutes);
@@ -2973,6 +2987,7 @@ uploadButton.addEventListener('click', () => {
                         employeeHistory[chapa].push({ date: today, totalMinutes: saldoMinutes, positiveMinutes: positiveMinutes });
                     }
                 });
+                localStorage.setItem('employeeHistory', JSON.stringify(employeeHistory)); // Salva employeeHistory no localStorage
 
                 // NOVO: Resetar a consulta do colaborador ao carregar um novo arquivo
                 currentConsultedRecord = null;
@@ -2987,14 +3002,13 @@ uploadButton.addEventListener('click', () => {
                 uploadStatus.textContent = `Erro ao processar o arquivo: ${error.message}`;
                 uploadStatus.className = 'error';
                 console.error('Erro ao processar Excel:', error);
-                overtimeData = [];
-                searchButtonModal.disabled = true;
-                showAllButton.disabled = true;
-                printPdfButton.disabled = true; // NOVO: Desabilita o botão de PDF
-                searchByCargoButton.disabled = true; // NOVO: Desabilita o botão de busca por cargo
-                sendWhatsappButton.disabled = true; // NOVO: Desabilita o botão de WhatsApp
-                downloadSpecificPdfButton.disabled = true; // NOVO: Desabilita o botão de download específico
-                // NOVO: Limpa o gráfico de líderes em caso de erro
+                // Se houver erro no processamento, não altera os dados existentes
+                searchButtonModal.disabled = (overtimeData.length === 0);
+                showAllButton.disabled = (overtimeData.length === 0);
+                printPdfButton.disabled = (overtimeData.length === 0);
+                searchByCargoButton.disabled = (overtimeData.length === 0);
+                sendWhatsappButton.disabled = (overtimeData.length === 0);
+                downloadSpecificPdfButton.disabled = (overtimeData.length === 0);
                 if (leaderOvertimeChartInstance) {
                     leaderOvertimeChartInstance.destroy();
                     leaderOvertimeChartInstance = null;
@@ -3008,14 +3022,13 @@ uploadButton.addEventListener('click', () => {
             uploadStatus.textContent = `Erro ao ler o arquivo: ${error.message}`;
             uploadStatus.className = 'error';
             console.error('Erro ao ler arquivo:', error);
-            overtimeData = [];
-            searchButtonModal.disabled = true;
-            showAllButton.disabled = true;
-            printPdfButton.disabled = true; // NOVO: Desabilita o botão de PDF
-            searchByCargoButton.disabled = true; // NOVO: Desabilita o botão de busca por cargo
-            sendWhatsappButton.disabled = true; // NOVO: Desabilita o botão de WhatsApp
-            downloadSpecificPdfButton.disabled = true; // NOVO: Desabilita o botão de download específico
-            // NOVO: Limpa o gráfico de líderes em caso de erro
+            // Se houver erro na leitura, não altera os dados existentes
+            searchButtonModal.disabled = (overtimeData.length === 0);
+            showAllButton.disabled = (overtimeData.length === 0);
+            printPdfButton.disabled = (overtimeData.length === 0);
+            searchByCargoButton.disabled = (overtimeData.length === 0);
+            sendWhatsappButton.disabled = (overtimeData.length === 0);
+            downloadSpecificPdfButton.disabled = (overtimeData.length === 0);
             if (leaderOvertimeChartInstance) {
                 leaderOvertimeChartInstance.destroy();
                 leaderOvertimeChartInstance = null;
@@ -3332,6 +3345,12 @@ savePhoneNumberButton.addEventListener('click', () => {
 
 // Inicialização
 updateDateTime(); // Atualiza a data e hora ao carregar a página
+
+// NOVO: Chama displayRecordsAndChart ao carregar a página se já houver dados
+// Isso garante que a tabela e o gráfico de líderes sejam exibidos se houver dados persistidos
+if (overtimeData.length > 0) {
+    displayRecordsAndChart(overtimeData, 'Todos os Registros');
+}
 </script>
 </body>
 </html>
