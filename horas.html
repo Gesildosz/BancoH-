@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Horas Extras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+        th {
+            background-color: #e0e0e0;
+            font-weight: bold;
+            color: #333;
+            white-space: nowrap; /* Prevent header text from wrapping */
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light gray for even rows */
+        }
+        tr:nth-child(odd) {
+            background-color: #ffffff; /* White for odd rows */
+        }
+        /* Specific styling for Status column */
+        .status-prioridade-folga {
+            background-color: #ff0000; /* Red */
+            color: white;
+            font-weight: bold;
+        }
+        .status-dar-folga {
+            background-color: #ffcccc; /* Light red/pink */
+            color: #333;
+        }
+        .status-colaborador-negativo {
+            background-color: #cceeff; /* Light blue */
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Relatório de Horas Extras</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>N° Chapa</th>
+                <th>Nome</th>
+                <th>Função</th>
+                <th>Líder</th>
+                <th>Turno</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>220001228</td>
+                <td>GESILDO DA SILVA SOUZA</td>
+                <td>Controlador de Movimentação</td>
+                <td>Welton</td>
+                <td>08:03:00</td>
+                <td class="status-prioridade-folga">Prioridade FOLGA</td>
+            </tr>
+            <tr>
+                <td>220001642</td>
+                <td>JOSEANDRO CARNEIRO DAS VIRGENS</td>
+                <td>Operador de Transpaleteira</td>
+                <td>Gesildo</td>
+                <td>06:18:00</td>
+                <td class="status-prioridade-folga">Prioridade FOLGA</td>
+            </tr>
+            <tr>
+                <td>220001387</td>
+                <td>GILSON SILVA DOS SANTOS</td>
+                <td>Operador de Transpaleteira</td>
+                <td>Gesildo</td>
+                <td>06:02:00</td>
+                <td class="status-prioridade-folga">Prioridade FOLGA</td>
+            </tr>
+            <tr>
+                <td>220000792</td>
+                <td>RENATO MOTA SILVA</td>
+                <td>Operador de Empilhadeira II</td>
+                <td>Gesildo</td>
+                <td>05:30:00</td>
+                <td class="status-prioridade-folga">Prioridade FOLGA</td>
+            </tr>
+            <tr>
+                <td>220001554</td>
+                <td>CESAR DIAS CHAGAS</td>
+                <td>Operador de Empilhadeira I</td>
+                <td>Gesildo</td>
+                <td>05:00:00</td>
+                <td class="status-prioridade-folga">Prioridade FOLGA</td>
+            </tr>
+            <tr>
+                <td>220001150</td>
+                <td>OSMAR PEREIRA SANTOS</td>
+                <td>Controlador de Movimentação</td>
+                <td>Welton</td>
+                <td>04:09:00</td>
+                <td class="status-dar-folga">Dar folga a funcionário</td>
+            </tr>
+            <tr>
+                <td>220001041</td>
+                <td>ADRIANO HILARIO DOS SANTOS</td>
+                <td>Conferente II</td>
+                <td>Osmar</td>
+                <td>04:04:00</td>
+                <td class="status-dar-folga">Dar folga a funcionário</td>
+            </tr>
+            <tr>
+                <td>220001286</td>
+                <td>ANDRE LUIS SANTANA SENA</td>
+                <td>Analista Jr</td>
+                <td>Welton</td>
+                <td>04:01:00</td>
+                <td class="status-dar-folga">Dar folga a funcionário</td>
+            </tr>
+            <tr>
+                <td>220001646</td>
+                <td>DORIVAL SOARES NETO</td>
+                <td>Conferente I</td>
+                <td>Osmar</td>
+                <td>03:59:00</td>
+                <td class="status-dar-folga">Dar folga a funcionário</td>
+            </tr>
+            <tr>
+                <td>220000756</td>
+                <td>RODRIGO SOUSA SANTOS</td>
+                <td>Analista Jr</td>
+                <td>Welton</td>
+                <td>03:32:00</td>
+                <td class="status-dar-folga">Dar folga a funcionário</td>
+            </tr>
+            <tr>
+                <td>220001397</td>
+                <td>ROBERVAL DE SOUSA SANTANA</td>
+                <td>Conferente I</td>
+                <td>Osmar</td>
+                <td>03:01:00</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>220000786</td>
+                <td>GILSON SOUSA SANTOS</td>
+                <td>Conferente II</td>
+                <td>Osmar</td>
+                <td>01:45:00</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>220001809</td>
+                <td>JAIME OLIVEIRA DE CARVALHO</td>
+                <td>Conferente I</td>
+                <td>Gesildo</td>
+                <td>01:38:00</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>220000723</td>
+                <td>RAUL ALBIANE SILVA MARQUES</td>
+                <td>Analista Jr</td>
+                <td>Welton</td>
+                <td>01:05:00</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>220000724</td>
+                <td>ADILSON SANTOS CONCEICAO</td>
+                <td>Operador de Empilhadeira II</td>
+                <td>Gesildo</td>
+                <td>00:52:00</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>220001388</td>
+                <td>RAIMUNDO DE ARAUJO SOUZA FILHO</td>
+                <td>Operador de Empilhadeira I</td>
+                <td>Osmar</td>
+                <td>-0:13:00</td>
+                <td class="status-colaborador-negativo">Colaborador negativo</td>
+            </tr>
+            <tr>
+                <td>220000790</td>
+                <td>LUCIANO FERREIRA LUCIO</td>
+                <td>Operador de Empilhadeira II</td>
+                <td>Gesildo</td>
+                <td>-0:28:00</td>
+                <td class="status-colaborador-negativo">Colaborador negativo</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
