@@ -647,92 +647,92 @@ z-index: 1; /* Garante que o texto fique acima da barra */
 /* Responsividade */
 @media (max-width: 768px) {
 .container, .colaborador-modal, .modal-content {
-    padding: 25px;
-    margin-bottom: 20px;
+padding: 25px;
+margin-bottom: 20px;
 }
 h1 {
-    font-size: 2.2em;
+font-size: 2.2em;
 }
 .intro-text {
-    font-size: 1em;
+font-size: 1em;
 }
 .main-action-button {
-    font-size: 1.1em;
-    padding: 12px 25px;
+font-size: 1.1em;
+padding: 12px 25px;
 }
 .colaborador-modal .input-group, .admin-content-modal .section > button {
-    flex-direction: column;
-    align-items: stretch;
+flex-direction: column;
+align-items: stretch;
 }
 .colaborador-modal .input-group button, .admin-content-modal button {
-    width: 100%;
-    min-width: unset;
-    margin-right: 0; /* Remove margin-right for full width buttons */
+width: 100%;
+min-width: unset;
+margin-right: 0; /* Remove margin-right for full width buttons */
 }
 .banner-container {
-    flex-direction: column;
-    align-items: center;
+flex-direction: column;
+align-items: center;
 }
 .banner-card {
-    width: 100%;
-    max-width: 90%;
+width: 100%;
+max-width: 90%;
 }
 #adminIcon {
-    font-size: 2em;
-    top: 15px;
-    right: 15px;
+font-size: 2em;
+top: 15px;
+right: 15px;
 }
 .history-modal {
-    padding: 25px;
-    gap: 20px;
+padding: 25px;
+gap: 20px;
 }
 .modal-logo-container {
-    font-size: 1.8em; /* Ajuste para telas menores */
+font-size: 1.8em; /* Ajuste para telas menores */
 }
 .table-display-area {
-    padding: 15px;
+padding: 15px;
 }
 .search-input-group {
-    flex-direction: column;
-    align-items: stretch;
+flex-direction: column;
+align-items: stretch;
 }
 .search-input-group button {
-    width: 100%;
+width: 100%;
 }
 }
 
 @media (max-width: 480px) {
 body {
-    padding: 10px;
+padding: 10px;
 }
 .container {
-    padding: 20px;
+padding: 20px;
 }
 /* NOVO: Ajuste de padding para todos os modais em telas muito pequenas */
 .modal-content, .colaborador-modal, .history-modal, .admin-content-modal {
-    padding: 20px; /* Reduz o padding para caber mais conteúdo */
+padding: 20px; /* Reduz o padding para caber mais conteúdo */
 }
 h1 {
-    font-size: 1.8em;
+font-size: 1.8em;
 }
 h2 {
-    font-size: 1.5em;
+font-size: 1.5em;
 }
 .modal-content h3 {
-    font-size: 1.5em;
+font-size: 1.5em;
 }
 .modal-content .close-button {
-    font-size: 1.5em;
+font-size: 1.5em;
 }
 input[type="file"], input[type="text"], input[type="password"], button {
-    font-size: 14px;
-    padding: 10px;
+font-size: 14px;
+padding: 10px;
 }
 .modal-logo-container {
-    font-size: 1.5em; /* Ajuste para telas muito pequenas */
+font-size: 1.5em; /* Ajuste para telas muito pequenas */
 }
 .table-display-area {
-    padding: 10px;
+padding: 10px;
 }
 }
 </style>
@@ -1128,7 +1128,7 @@ const passwordPromptErrorMessage = document.getElementById('passwordPromptErrorM
 const forgotPasswordButton = document.getElementById('forgotPasswordButton'); // NOVO: Botão Esqueci minha senha
 
 // NOVO: Elementos do Modal de Recuperação de Senha
-const forgotPasswordModalOverlay = document = document.getElementById('forgotPasswordModalOverlay');
+const forgotPasswordModalOverlay = document.getElementById('forgotPasswordModalOverlay');
 const closeForgotPasswordModalButton = document.getElementById('closeForgotPasswordModalButton');
 const forgotChapaInput = document.getElementById('forgotChapa');
 const forgotTelefoneInput = document.getElementById('forgotTelefone');
@@ -1444,12 +1444,12 @@ const seconds = remainingTime % 60;
 tokenTimerDisplay.textContent = `Token expira em: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
 if (remainingTime <= 0) {
-    clearInterval(tokenTimer);
-    tokenTimerDisplay.textContent = 'Token Expirado!';
-    tokenErrorMessage.textContent = 'O token expirou. Por favor, gere um novo.';
-    tokenErrorMessage.classList.remove('hidden');
-    tokenInput.disabled = true;
-    confirmTokenButton.disabled = true;
+clearInterval(tokenTimer);
+tokenTimerDisplay.textContent = 'Token Expirado!';
+tokenErrorMessage.textContent = 'O token expirou. Por favor, gere um novo.';
+tokenErrorMessage.classList.remove('hidden');
+tokenInput.disabled = true;
+confirmTokenButton.disabled = true;
 }
 }
 
@@ -1458,13 +1458,13 @@ if (remainingTime <= 0) {
 function updateDateTime() {
 const now = new Date();
 const options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false
+year: 'numeric',
+month: 'long',
+day: 'numeric',
+hour: '2-digit',
+minute: '2-digit',
+second: '2-digit',
+hour12: false
 };
 currentDateTimeDisplay.textContent = `Consulta em: ${now.toLocaleDateString('pt-BR', options)}`;
 }
@@ -1472,13 +1472,13 @@ currentDateTimeDisplay.textContent = `Consulta em: ${now.toLocaleDateString('pt-
 // NOVO: Função para validar o formato de hora (HH:MM, -HH:MM, número decimal ou string numérica)
 function isValidTimeFormat(timeValue) {
 if (typeof timeValue === 'number') {
-    return true; // Números são considerados válidos (assumindo formato Excel de dias)
+return true; // Números são considerados válidos (assumindo formato Excel de dias)
 }
 if (typeof timeValue === 'string') {
-    // Tenta o formato HH:MM:SS ou -HH:MM:SS (ou HH:MM)
-    const timeRegex = /^[+-]?(\d+):(\d{2})(:\d{2})?$/; // Added (:\d{2})? for optional seconds
-    const numRegex = /^[+-]?\d+([.,]\d+)?$/; // Número simples ou decimal (com . ou ,)
-    return timeRegex.test(timeValue) || numRegex.test(timeValue.replace(',', '.'));
+// Tenta o formato HH:MM:SS ou -HH:MM:SS (ou HH:MM)
+const timeRegex = /^[+-]?(\d+):(\d{2})(:\d{2})?$/; // Added (:\d{2})? for optional seconds
+const numRegex = /^[+-]?\d+([.,]\d+)?$/; // Número simples ou decimal (com . ou ,)
+return timeRegex.test(timeValue) || numRegex.test(timeValue.replace(',', '.'));
 }
 return false;
 }
@@ -1486,26 +1486,26 @@ return false;
 // NOVO: Função para converter HH:MM, número decimal ou string numérica para minutos
 function timeToMinutes(timeValue) {
 if (typeof timeValue === 'number') {
-    // Assume que é um número representando dias (formato de tempo do Excel)
-    return Math.round(timeValue * 24 * 60); // Converte dias para minutos
+// Assume que é um número representando dias (formato de tempo do Excel)
+return Math.round(timeValue * 24 * 60); // Converte dias para minutos
 }
 
 if (typeof timeValue === 'string') {
-    // Tenta o formato HH:MM:SS ou -HH:MM:SS (ou HH:MM)
-    const timeRegex = /^[+-]?(\d+):(\d{2})(:\d{2})?$/;
-    let match = timeValue.match(timeRegex);
-    if (match) {
-        const sign = timeValue.startsWith('-') ? -1 : 1;
-        const hours = parseInt(match[1], 10);
-        const minutes = parseInt(match[2], 10);
-        return sign * (hours * 60 + minutes);
-    }
+// Tenta o formato HH:MM:SS ou -HH:MM:SS (ou HH:MM)
+const timeRegex = /^[+-]?(\d+):(\d{2})(:\d{2})?$/;
+let match = timeValue.match(timeRegex);
+if (match) {
+    const sign = timeValue.startsWith('-') ? -1 : 1;
+    const hours = parseInt(match[1], 10);
+    const minutes = parseInt(match[2], 10);
+    return sign * (hours * 60 + minutes);
+}
 
-    // Tenta string numérica simples (ex: "8", "1.5") interpretada como horas
-    const numValue = parseFloat(timeValue.replace(',', '.')); // Lida com vírgula como separador decimal
-    if (!isNaN(numValue)) {
-        return Math.round(numValue * 60); // Converte horas para minutos
-    }
+// Tenta string numérica simples (ex: "8", "1.5") interpretada como horas
+const numValue = parseFloat(timeValue.replace(',', '.')); // Lida com vírgula como separador decimal
+if (!isNaN(numValue)) {
+    return Math.round(numValue * 60); // Converte horas para minutos
+}
 }
 
 // Retorna 0 como fallback seguro para formatos inválidos/não reconhecidos
@@ -1525,47 +1525,47 @@ return `${sign}${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '
 // NOVO: Função para exibir os resultados da consulta do colaborador
 function displayConsultationResults() {
 if (!currentConsultedRecord) {
-    textResults.innerHTML = '<p class="error">Nenhum registro de colaborador consultado.</p>';
-    showHistoryButton.classList.add('hidden');
-    return;
+textResults.innerHTML = '<p class="error">Nenhum registro de colaborador consultado.</p>';
+showHistoryButton.classList.add('hidden');
+return;
 }
 
 let resultHtml = '';
 REQUIRED_DISPLAY_COLUMNS.forEach(col => {
-    if (currentConsultedRecord.hasOwnProperty(col)) {
-        let value = currentConsultedRecord[col];
-        let displayValue = value;
-        let className = '';
-        let negativeMessage = '';
+if (currentConsultedRecord.hasOwnProperty(col)) {
+    let value = currentConsultedRecord[col];
+    let displayValue = value;
+    let className = '';
+    let negativeMessage = '';
 
-        if (col === 'Turno') { // Assumindo que 'Turno' é o 'Saldo Final' anterior
-            const minutes = timeToMinutes(value);
-            if (minutes === 0 && !isValidTimeFormat(value)) { // Se não conseguiu parsear e não é um formato válido
-                className = 'invalid-format';
-                displayValue = `${value} (Formato Inválido)`;
-            } else {
-                displayValue = minutesToTime(minutes); // Sempre exibe no formato HH:MM
-                if (minutes < 0) {
-                    className = 'negative-saldo';
-                    negativeMessage = '<span class="negative-message">(Horas Negativas)</span>';
-                }
+    if (col === 'Turno') { // Assumindo que 'Turno' é o 'Saldo Final' anterior
+        const minutes = timeToMinutes(value);
+        if (minutes === 0 && !isValidTimeFormat(value)) { // Se não conseguiu parsear e não é um formato válido
+            className = 'invalid-format';
+            displayValue = `${value} (Formato Inválido)`;
+        } else {
+            displayValue = minutesToTime(minutes); // Sempre exibe no formato HH:MM
+            if (minutes < 0) {
+                className = 'negative-saldo';
+                negativeMessage = '<span class="negative-message">(Horas Negativas)</span>';
             }
         }
-        resultHtml += `<p><strong>${col}:</strong> <span class="${className}">${displayValue}</span>${negativeMessage}</p>`;
-    } else {
-        resultHtml += `<p class="error"><strong>${col}:</strong> Dado não disponível para esta chapa.</p>`;
     }
+    resultHtml += `<p><strong>${col}:</strong> <span class="${className}">${displayValue}</span>${negativeMessage}</p>`;
+} else {
+    resultHtml += `<p class="error"><strong>${col}:</strong> Dado não disponível para esta chapa.</p>`;
+}
 });
 textResults.innerHTML = resultHtml;
 
 const employeeChapa = String(currentConsultedRecord.CHAPA);
 // O botão de histórico aparece se houver 1 ou mais pontos
 if (employeeHistory[employeeChapa] && employeeHistory[employeeChapa].length > 0) {
-    showHistoryButton.classList.remove('hidden');
-    console.log('displayConsultationResults: showHistoryButton visível.');
+showHistoryButton.classList.remove('hidden');
+console.log('displayConsultationResults: showHistoryButton visível.');
 } else {
-    showHistoryButton.classList.add('hidden');
-    console.log('displayConsultationResults: showHistoryButton oculto.');
+showHistoryButton.classList.add('hidden');
+console.log('displayConsultationResults: showHistoryButton oculto.');
 }
 showColaboradorModal(); // Reabre o modal principal do colaborador com os resultados
 }
@@ -1577,30 +1577,30 @@ console.log('renderLeaderOvertimeChart: Chamado');
 const data = dataToChart || overtimeData; // Usa os dados passados ou os dados globais
 
 if (data.length === 0) {
-    console.log('renderLeaderOvertimeChart: Sem dados para renderizar o gráfico de líderes.');
-    if (leaderOvertimeChartInstance) {
-        leaderOvertimeChartInstance.destroy();
-        leaderOvertimeChartInstance = null;
-    }
-    return;
+console.log('renderLeaderOvertimeChart: Sem dados para renderizar o gráfico de líderes.');
+if (leaderOvertimeChartInstance) {
+    leaderOvertimeChartInstance.destroy();
+    leaderOvertimeChartInstance = null;
+}
+return;
 }
 
 const leaderSummary = {}; // { "Líder A": { positive: N, negative: M }, ... }
 
 data.forEach(record => { // Usa 'data' em vez de 'overtimeData'
-    const leader = record.Líder;
-    if (!leader) return; // Ignora registros sem líder
+const leader = record.Líder;
+if (!leader) return; // Ignora registros sem líder
 
-    if (!leaderSummary[leader]) {
-        leaderSummary[leader] = { positive: 0, negative: 0 };
-    }
+if (!leaderSummary[leader]) {
+    leaderSummary[leader] = { positive: 0, negative: 0 };
+}
 
-    const saldoMinutes = timeToMinutes(record['Turno']); // Usando 'Turno' como Saldo Final
-    if (saldoMinutes > 0) {
-        leaderSummary[leader].positive += saldoMinutes;
-    } else {
-        leaderSummary[leader].negative += Math.abs(saldoMinutes); // Soma o valor absoluto das horas negativas
-    }
+const saldoMinutes = timeToMinutes(record['Turno']); // Usando 'Turno' como Saldo Final
+if (saldoMinutes > 0) {
+    leaderSummary[leader].positive += saldoMinutes;
+} else {
+    leaderSummary[leader].negative += Math.abs(saldoMinutes); // Soma o valor absoluto das horas negativas
+}
 });
 
 const leaders = Object.keys(leaderSummary);
@@ -1610,80 +1610,80 @@ const negativeHours = leaders.map(leader => leaderSummary[leader].negative);
 const ctx = leaderOvertimeChartCanvas.getContext('2d');
 
 if (leaderOvertimeChartInstance) {
-    leaderOvertimeChartInstance.destroy();
+leaderOvertimeChartInstance.destroy();
 }
 
 leaderOvertimeChartInstance = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: leaders,
-        datasets: [
-            {
-                label: 'Horas Positivas',
-                data: positiveHours,
-                backgroundColor: 'rgba(46, 204, 113, 0.7)', // Verde para positivo
-                borderColor: 'rgba(39, 174, 96, 1)',
-                borderWidth: 1
-            },
-            {
-                label: 'Horas Negativas',
-                data: negativeHours,
-                backgroundColor: 'rgba(231, 76, 60, 0.7)', // Vermelho para negativo
-                borderColor: 'rgba(192, 57, 43, 1)',
-                borderWidth: 1
-            }
-        ]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        const valueInMinutes = context.raw;
-                        return `${context.dataset.label}: ${minutesToTime(valueInMinutes)}`;
-                    }
+type: 'bar',
+data: {
+    labels: leaders,
+    datasets: [
+        {
+            label: 'Horas Positivas',
+            data: positiveHours,
+            backgroundColor: 'rgba(46, 204, 113, 0.7)', // Verde para positivo
+            borderColor: 'rgba(39, 174, 96, 1)',
+            borderWidth: 1
+        },
+        {
+            label: 'Horas Negativas',
+            data: negativeHours,
+            backgroundColor: 'rgba(231, 76, 60, 0.7)', // Vermelho para negativo
+            borderColor: 'rgba(192, 57, 43, 1)',
+            borderWidth: 1
+        }
+    ]
+},
+options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        tooltip: {
+            callbacks: {
+                label: function(context) {
+                    const valueInMinutes = context.raw;
+                    return `${context.dataset.label}: ${minutesToTime(valueInMinutes)}`;
                 }
-            },
-            legend: {
-                position: 'top',
-            },
-            datalabels: {
-                color: 'white',
-                font: {
-                    weight: 'bold',
-                    size: 10
-                },
-                formatter: function(value) {
-                    return minutesToTime(value);
-                },
-                align: 'center',
-                anchor: 'center'
             }
         },
-        scales: {
-            x: {
-                stacked: false, // Barras lado a lado
-                title: {
-                    display: true,
-                    text: 'Líder'
-                }
+        legend: {
+            position: 'top',
+        },
+        datalabels: {
+            color: 'white',
+            font: {
+                weight: 'bold',
+                size: 10
             },
-            y: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: 'Horas (HH:MM)'
-                },
-                ticks: {
-                    callback: function(value) {
-                        return minutesToTime(value);
-                    }
+            formatter: function(value) {
+                return minutesToTime(value);
+            },
+            align: 'center',
+            anchor: 'center'
+        }
+    },
+    scales: {
+        x: {
+            stacked: false, // Barras lado a lado
+            title: {
+                display: true,
+                text: 'Líder'
+            }
+        },
+        y: {
+            beginAtZero: true,
+            title: {
+                display: true,
+                text: 'Horas (HH:MM)'
+            },
+            ticks: {
+                callback: function(value) {
+                    return minutesToTime(value);
                 }
             }
         }
     }
+}
 });
 console.log('renderLeaderOvertimeChart: Gráfico de líderes renderizado.');
 }
@@ -1693,29 +1693,29 @@ console.log('renderLeaderOvertimeChart: Gráfico de líderes renderizado.');
 function renderCharts() {
 console.log('renderCharts: Chamado');
 if (!currentConsultedRecord) {
-    console.error("Nenhum registro de colaborador consultado para gerar gráficos.");
-    return;
+console.error("Nenhum registro de colaborador consultado para gerar gráficos.");
+return;
 }
 
 const employeeChapa = String(currentConsultedRecord.CHAPA);
 const history = employeeHistory[employeeChapa];
 
 if (!history || history.length === 0) { // Se não há histórico ou está vazio
-    totalOvertimeChartTitle.textContent = `Histórico de Saldo Total de Horas de ${currentConsultedRecord.Nome}`;
-    positiveOvertimeChartTitle.textContent = `Histórico de Horas Positivas de ${currentConsultedRecord.Nome}`;
-    totalPercentageChangeDisplay.textContent = 'Não há dados históricos para exibir.';
-    positivePercentageChangeDisplay.textContent = 'Não há dados históricos para exibir.';
-    
-    // Destrói gráficos existentes para limpar a área
-    if (totalOvertimeChartInstance) {
-        totalOvertimeChartInstance.destroy();
-        totalOvertimeChartInstance = null;
-    }
-    if (positiveOvertimeChartInstance) {
-        positiveOvertimeChartInstance.destroy();
-        positiveOvertimeChartInstance = null;
-    }
-    return;
+totalOvertimeChartTitle.textContent = `Histórico de Saldo Total de Horas de ${currentConsultedRecord.Nome}`;
+positiveOvertimeChartTitle.textContent = `Histórico de Horas Positivas de ${currentConsultedRecord.Nome}`;
+totalPercentageChangeDisplay.textContent = 'Não há dados históricos para exibir.';
+positivePercentageChangeDisplay.textContent = 'Não há dados históricos para exibir.';
+
+// Destrói gráficos existentes para limpar a área
+if (totalOvertimeChartInstance) {
+    totalOvertimeChartInstance.destroy();
+    totalOvertimeChartInstance = null;
+}
+if (positiveOvertimeChartInstance) {
+    positiveOvertimeChartInstance.destroy();
+    positiveOvertimeChartInstance = null;
+}
+return;
 }
 
 // Ordena o histórico por data para garantir a ordem correta no gráfico
@@ -1726,8 +1726,8 @@ totalOvertimeChartTitle.textContent = `Saldo Total de Horas de ${employeeName}`;
 positiveOvertimeChartTitle.textContent = `Horas Positivas de ${employeeName}`;
 
 const chartLabels = history.map(entry => {
-    const date = new Date(entry.date);
-    return date.toLocaleDateString('pt-BR', { month: 'short', day: 'numeric' });
+const date = new Date(entry.date);
+return date.toLocaleDateString('pt-BR', { month: 'short', day: 'numeric' });
 });
 const totalChartData = history.map(entry => entry.totalMinutes);
 const positiveChartData = history.map(entry => entry.positiveMinutes);
@@ -1736,52 +1736,52 @@ const positiveChartData = history.map(entry => entry.positiveMinutes);
 let totalPercentageMessage = '';
 totalPercentageChangeDisplay.classList.remove('positive', 'negative');
 if (history.length < 2) {
-    totalPercentageChangeDisplay.textContent = 'Apenas um ponto de dados disponível. Não é possível calcular a evolução.';
+totalPercentageChangeDisplay.textContent = 'Apenas um ponto de dados disponível. Não é possível calcular a evolução.';
 } else {
-    const firstTotalMinutes = totalChartData[0];
-    const lastTotalMinutes = totalChartData[totalChartData.length - 1];
-    if (firstTotalMinutes !== 0) {
-        const percentageChange = ((lastTotalMinutes - firstTotalMinutes) / Math.abs(firstTotalMinutes)) * 100;
-        totalPercentageMessage = `Variação no período: ${percentageChange.toFixed(2)}%`;
-        if (percentageChange > 0) {
-            totalPercentageChangeDisplay.classList.add('positive');
-            totalPercentageMessage = `📈 ${totalPercentageMessage} (Aumento)`;
-        } else if (percentageChange < 0) {
-            totalPercentageChangeDisplay.classList.add('negative');
-            totalPercentageMessage = `📉 ${totalPercentageMessage} (Redução)`;
-        } else {
-            totalPercentageMessage = `↔️ ${totalPercentageMessage} (Estável)`;
-        }
+const firstTotalMinutes = totalChartData[0];
+const lastTotalMinutes = totalChartData[totalChartData.length - 1];
+if (firstTotalMinutes !== 0) {
+    const percentageChange = ((lastTotalMinutes - firstTotalMinutes) / Math.abs(firstTotalMinutes)) * 100;
+    totalPercentageMessage = `Variação no período: ${percentageChange.toFixed(2)}%`;
+    if (percentageChange > 0) {
+        totalPercentageChangeDisplay.classList.add('positive');
+        totalPercentageMessage = `📈 ${totalPercentageMessage} (Aumento)`;
+    } else if (percentageChange < 0) {
+        totalPercentageChangeDisplay.classList.add('negative');
+        totalPercentageMessage = `📉 ${totalPercentageMessage} (Redução)`;
     } else {
-        totalPercentageMessage = `Variação no período: Não calculável (saldo inicial zero).`;
+        totalPercentageMessage = `↔️ ${totalPercentageMessage} (Estável)`;
     }
-    totalPercentageChangeDisplay.textContent = totalPercentageMessage;
+} else {
+    totalPercentageMessage = `Variação no período: Não calculável (saldo inicial zero).`;
+}
+totalPercentageChangeDisplay.textContent = totalPercentageMessage;
 }
 
 // Calcula a variação percentual para Horas Positivas
 let positivePercentageMessage = '';
 positivePercentageChangeDisplay.classList.remove('positive', 'negative');
 if (history.length < 2) {
-    positivePercentageChangeDisplay.textContent = 'Apenas um ponto de dados disponível. Não é possível calcular a evolução.';
+positivePercentageChangeDisplay.textContent = 'Apenas um ponto de dados disponível. Não é possível calcular a evolução.';
 } else {
-    const firstPositiveMinutes = positiveChartData[0];
-    const lastPositiveMinutes = positiveChartData[positiveChartData.length - 1];
-    if (firstPositiveMinutes !== 0) {
-        const percentageChange = ((lastPositiveMinutes - firstPositiveMinutes) / Math.abs(firstPositiveMinutes)) * 100;
-        positivePercentageMessage = `Variação no período: ${percentageChange.toFixed(2)}%`;
-        if (percentageChange > 0) {
-            positivePercentageChangeDisplay.classList.add('positive');
-            positivePercentageMessage = `📈 ${positivePercentageMessage} (Aumento)`;
-        } else if (percentageChange < 0) {
-            positivePercentageChangeDisplay.classList.add('negative');
-            positivePercentageMessage = `📉 ${positivePercentageMessage} (Redução)`;
-        } else {
-            positivePercentageMessage = `↔️ ${positivePercentageMessage} (Estável)`;
-        }
+const firstPositiveMinutes = positiveChartData[0];
+const lastPositiveMinutes = positiveChartData[positiveChartData.length - 1];
+if (firstPositiveMinutes !== 0) {
+    const percentageChange = ((lastPositiveMinutes - firstPositiveMinutes) / Math.abs(firstPositiveMinutes)) * 100;
+    positivePercentageMessage = `Variação no período: ${percentageChange.toFixed(2)}%`;
+    if (percentageChange > 0) {
+        positivePercentageChangeDisplay.classList.add('positive');
+        positivePercentageMessage = `📈 ${positivePercentageMessage} (Aumento)`;
+    } else if (percentageChange < 0) {
+        positivePercentageChangeDisplay.classList.add('negative');
+        positivePercentageMessage = `📉 ${positivePercentageMessage} (Redução)`;
     } else {
-        positivePercentageMessage = `Variação no período: Não calculável (horas positivas iniciais zero).`;
+        positivePercentageMessage = `↔️ ${positivePercentageMessage} (Estável)`;
     }
-    positivePercentageChangeDisplay.textContent = positivePercentageMessage;
+} else {
+    positivePercentageMessage = `Variação no período: Não calculável (horas positivas iniciais zero).`;
+}
+positivePercentageChangeDisplay.textContent = positivePercentageMessage;
 }
 
 
@@ -1789,133 +1789,73 @@ if (history.length < 2) {
 const totalCtx = document.getElementById('totalOvertimeChart').getContext('2d');
 // Destrói a instância anterior do gráfico se existir
 if (totalOvertimeChartInstance) {
-    totalOvertimeChartInstance.destroy();
+totalOvertimeChartInstance.destroy();
 }
 totalOvertimeChartInstance = new Chart(totalCtx, {
-    type: 'line',
-    data: {
-        labels: chartLabels,
-        datasets: [{
-            label: 'Saldo Total de Horas',
-            data: totalChartData,
-            borderColor: (context) => {
-                const chart = context;
-                const { ctx, chartArea } = chart;
-                if (!chartArea) return;
-                const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
-                gradient.addColorStop(0, 'red'); // Valores negativos
-                gradient.addColorStop(0.5, 'orange'); // Valores próximos de zero
-                gradient.addColorStop(1, 'green'); // Valores positivos
-                return gradient;
-            },
-            backgroundColor: 'rgba(74, 144, 226, 0.2)',
-            fill: true,
-            tension: 0.3,
-            pointBackgroundColor: (context) => {
-                const value = context.raw;
-                if (value < 0) return 'red';
-                if (value === 0) return 'orange';
-                return 'green';
-            },
-            pointBorderColor: (context) => {
-                const value = context.raw;
-                if (value < 0) return 'darkred';
-                if (value === 0) return 'darkorange';
-                return 'darkgreen';
-            },
-            pointRadius: 5,
-            pointHoverRadius: 7,
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false, // Mantém false para preencher o wrapper
-        plugins: {
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        const valueInMinutes = context.raw;
-                        return `Saldo: ${minutesToTime(valueInMinutes)}`;
-                    }
+type: 'line',
+data: {
+    labels: chartLabels,
+    datasets: [{
+        label: 'Saldo Total de Horas',
+        data: totalChartData,
+        borderColor: (context) => {
+            const chart = context;
+            const { ctx, chartArea } = chart;
+            if (!chartArea) return;
+            const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+            gradient.addColorStop(0, 'red'); // Valores negativos
+            gradient.addColorStop(0.5, 'orange'); // Valores próximos de zero
+            gradient.addColorStop(1, 'green'); // Valores positivos
+            return gradient;
+        },
+        backgroundColor: 'rgba(74, 144, 226, 0.2)',
+        fill: true,
+        tension: 0.3,
+        pointBackgroundColor: (context) => {
+            const value = context.raw;
+            if (value < 0) return 'red';
+            if (value === 0) return 'orange';
+            return 'green';
+        },
+        pointBorderColor: (context) => {
+            const value = context.raw;
+            if (value < 0) return 'darkred';
+            if (value === 0) return 'darkorange';
+            return 'darkgreen';
+        },
+        pointRadius: 5,
+        pointHoverRadius: 7,
+    }]
+},
+options: {
+    responsive: true,
+    maintainAspectRatio: false, // Mantém false para preencher o wrapper
+    plugins: {
+        tooltip: {
+            callbacks: {
+                label: function(context) {
+                    const valueInMinutes = context.raw;
+                    return `Saldo: ${minutesToTime(valueInMinutes)}`;
                 }
-            },
-            legend: { display: false },
-            datalabels: { // NOVO: Configuração do plugin datalabels
-                color: '#34495e', // Cor do texto (var(--text-dark))
-                font: {
-                    weight: 'bold',
-                    size: 10
-                },
-                formatter: function(value) {
-                    return minutesToTime(value);
-                },
-                align: 'end', // Alinha o rótulo ao final do ponto
-                anchor: 'end' // Ancoragem no final do ponto
             }
         },
-        scales: {
-            y: {
-                beginAtZero: false,
-                title: { display: true, text: 'Horas (HH:MM)' },
-                ticks: {
-                    callback: function(value) { return minutesToTime(value); }
-                }
+        legend: { display: false },
+        datalabels: { // NOVO: Configuração do plugin datalabels
+            color: '#34495e', // Cor do texto (var(--text-dark))
+            font: {
+                weight: 'bold',
+                size: 10
             },
-            x: {
-                title: { display: true, text: 'Data' }
-            }
-        }
-    }
-});
-
-// Renderiza o Gráfico de Barras (Horas Positivas)
-const positiveCtx = document.getElementById('positiveOvertimeChart').getContext('2d');
-// Destrói a instância anterior do gráfico se existir
-if (positiveOvertimeChartInstance) {
-    positiveOvertimeChartInstance.destroy();
-}
-positiveOvertimeChartInstance = new Chart(positiveCtx, {
-    type: 'bar',
-    data: {
-        labels: chartLabels,
-        datasets: [{
-            label: 'Horas Positivas',
-            data: positiveChartData,
-            backgroundColor: 'rgba(46, 204, 113, 0.7)', // Verde para horas positivas
-            borderColor: 'rgba(39, 174, 96, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        const valueInMinutes = context.raw;
-                        return `Horas: ${minutesToTime(valueInMinutes)}`;
-                    }
-                }
+            formatter: function(value) {
+                return minutesToTime(value);
             },
-            legend: { display: false },
-            datalabels: { // NOVO: Configuração do plugin datalabels
-                color: 'white', // Cor do texto para contraste com a barra
-                font: {
-                    weight: 'bold',
-                    size: 10
-                },
-                formatter: function(value) {
-                    return minutesToTime(value);
-                },
-                align: 'center', // Alinha o rótulo no centro da barra
-                anchor: 'center' // Ancoragem no centro da barra
-            }
+            align: 'end', // Alinha o rótulo ao final do ponto
+            anchor: 'end' // Ancoragem no final do ponto
         }
     },
     scales: {
         y: {
-            beginAtZero: true, // Horas positivas sempre começam em zero
+            beginAtZero: false,
             title: { display: true, text: 'Horas (HH:MM)' },
             ticks: {
                 callback: function(value) { return minutesToTime(value); }
@@ -1925,6 +1865,66 @@ positiveOvertimeChartInstance = new Chart(positiveCtx, {
             title: { display: true, text: 'Data' }
         }
     }
+}
+});
+
+// Renderiza o Gráfico de Barras (Horas Positivas)
+const positiveCtx = document.getElementById('positiveOvertimeChart').getContext('2d');
+// Destrói a instância anterior do gráfico se existir
+if (positiveOvertimeChartInstance) {
+positiveOvertimeChartInstance.destroy();
+}
+positiveOvertimeChartInstance = new Chart(positiveCtx, {
+type: 'bar',
+data: {
+    labels: chartLabels,
+    datasets: [{
+        label: 'Horas Positivas',
+        data: positiveChartData,
+        backgroundColor: 'rgba(46, 204, 113, 0.7)', // Verde para horas positivas
+        borderColor: 'rgba(39, 174, 96, 1)',
+        borderWidth: 1
+    }]
+},
+options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        tooltip: {
+            callbacks: {
+                label: function(context) {
+                    const valueInMinutes = context.raw;
+                    return `Horas: ${minutesToTime(valueInMinutes)}`;
+                }
+            }
+        },
+        legend: { display: false },
+        datalabels: { // NOVO: Configuração do plugin datalabels
+            color: 'white', // Cor do texto para contraste com a barra
+            font: {
+                weight: 'bold',
+                size: 10
+            },
+            formatter: function(value) {
+                return minutesToTime(value);
+            },
+            align: 'center', // Alinha o rótulo no centro da barra
+            anchor: 'center' // Ancoragem no centro da barra
+        }
+    }
+},
+scales: {
+    y: {
+        beginAtZero: true, // Horas positivas sempre começam em zero
+        title: { display: true, text: 'Horas (HH:MM)' },
+        ticks: {
+            callback: function(value) { return minutesToTime(value); }
+        }
+    },
+    x: {
+        title: { display: true, text: 'Data' }
+    }
+}
 });
 }
 
@@ -1935,11 +1935,11 @@ tableTitle.textContent = ''; // Limpa o título
 recordsCount.textContent = ''; // Limpa a contagem
 
 if (dataToDisplay.length === 0) {
-    allRecordsTable.innerHTML = '<p class="no-data-message">Nenhum registro encontrado para esta consulta.</p>';
-    tableTitle.textContent = `${titlePrefix} (0 registros)`;
-    recordsCount.textContent = '';
-    renderLeaderOvertimeChart([]); // Renderiza o gráfico vazio
-    return;
+allRecordsTable.innerHTML = '<p class="no-data-message">Nenhum registro encontrado para esta consulta.</p>';
+tableTitle.textContent = `${titlePrefix} (0 registros)`;
+recordsCount.textContent = '';
+renderLeaderOvertimeChart([]); // Renderiza o gráfico vazio
+return;
 }
 
 tableTitle.textContent = `${titlePrefix} (${dataToDisplay.length} registros)`;
@@ -1951,34 +1951,34 @@ const tbody = document.createElement('tbody');
 
 const headerRow = document.createElement('tr');
 REQUIRED_DISPLAY_COLUMNS.forEach(headerText => {
-    const th = document.createElement('th');
-    th.textContent = headerText;
-    headerRow.appendChild(th);
+const th = document.createElement('th');
+th.textContent = headerText;
+headerRow.appendChild(th);
 });
 thead.appendChild(headerRow);
 table.appendChild(thead);
 
 dataToDisplay.forEach(record => {
-    const row = document.createElement('tr');
-    REQUIRED_DISPLAY_COLUMNS.forEach(col => {
-        const td = document.createElement('td');
-        let value = record.hasOwnProperty(col) ? record[col] : 'N/A';
-        if (col === 'Turno') { // Usando 'Turno' como Saldo Final
-            const minutes = timeToMinutes(value);
-            if (minutes === 0 && !isValidTimeFormat(value)) {
-                td.classList.add('invalid-format');
-                value = `${value} (Formato Inválido)`;
-            } else {
-                value = minutesToTime(minutes);
-                if (minutes < 0) {
-                    td.classList.add('negative-saldo');
-                }
+const row = document.createElement('tr');
+REQUIRED_DISPLAY_COLUMNS.forEach(col => {
+    const td = document.createElement('td');
+    let value = record.hasOwnProperty(col) ? record[col] : 'N/A';
+    if (col === 'Turno') { // Usando 'Turno' como Saldo Final
+        const minutes = timeToMinutes(value);
+        if (minutes === 0 && !isValidTimeFormat(value)) {
+            td.classList.add('invalid-format');
+            value = `${value} (Formato Inválido)`;
+        } else {
+            value = minutesToTime(minutes);
+            if (minutes < 0) {
+                td.classList.add('negative-saldo');
             }
         }
-        td.textContent = value;
-        row.appendChild(td);
-    });
-    tbody.appendChild(row);
+    }
+    td.textContent = value;
+    row.appendChild(td);
+});
+tbody.appendChild(row);
 });
 table.appendChild(tbody);
 allRecordsTable.appendChild(table); // Adiciona a tabela ao wrapper responsivo
@@ -1991,178 +1991,178 @@ renderLeaderOvertimeChart(dataToDisplay); // Desenha o gráfico com os dados exi
 async function generatePdfReport() {
 console.log('generatePdfReport: Iniciando geração do relatório geral...');
 if (overtimeData.length === 0) {
-    alert('Nenhum dado carregado para gerar o relatório PDF.');
-    console.warn('generatePdfReport: Nenhum dado carregado.');
-    return;
+alert('Nenhum dado carregado para gerar o relatório PDF.');
+console.warn('generatePdfReport: Nenhum dado carregado.');
+return;
 }
 
 printPdfButton.disabled = true;
 pdfSpinner.classList.remove('hidden'); // Mostra o spinner
 
 try {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    console.log('generatePdfReport: jsPDF instance created.');
+const { jsPDF } = window.jspdf;
+const doc = new jsPDF();
+console.log('generatePdfReport: jsPDF instance created.');
 
-    // Margens padrão para o documento
-    const margin = 15;
-    let yOffset = margin;
-    const pageWidth = doc.internal.pageSize.getWidth();
+// Margens padrão para o documento
+const margin = 15;
+let yOffset = margin;
+const pageWidth = doc.internal.pageSize.getWidth();
 
-    // Adicionar Logotipo
-    const logoWidth = 50; // mm
-    const logoHeight = 12.5; // mm
-    const logoX = (pageWidth - logoWidth) / 2; // Centraliza o logo
-    const logoY = 10; // 10mm do topo
-    
-    const svgBase64 = LOGO_BASE64_SVG.split(',')[1];
-    const svgString = atob(svgBase64);
+// Adicionar Logotipo
+const logoWidth = 50; // mm
+const logoHeight = 12.5; // mm
+const logoX = (pageWidth - logoWidth) / 2; // Centraliza o logo
+const logoY = 10; // 10mm do topo
 
-    try {
-        doc.addSvg(svgString, logoX, logoY, logoWidth, logoHeight);
-        console.log('generatePdfReport: SVG logo added successfully.');
-    } catch (svgError) {
-        console.error('generatePdfReport: Erro ao adicionar SVG logo ao PDF:', svgError);
-        doc.setFontSize(16);
-        doc.text('Banco Horas B+', logoX, logoY + logoHeight / 2, { align: 'center', baseline: 'middle' });
+const svgBase64 = LOGO_BASE64_SVG.split(',')[1];
+const svgString = atob(svgBase64);
+
+try {
+    doc.addSvg(svgString, logoX, logoY, logoWidth, logoHeight);
+    console.log('generatePdfReport: SVG logo added successfully.');
+} catch (svgError) {
+    console.error('generatePdfReport: Erro ao adicionar SVG logo ao PDF:', svgError);
+    doc.setFontSize(16);
+    doc.text('Banco Horas B+', logoX, logoY + logoHeight / 2, { align: 'center', baseline: 'middle' });
+}
+
+yOffset = logoY + logoHeight + 15; // Começa o conteúdo após o logo + margem
+
+// Título Principal
+doc.setFontSize(24);
+doc.setFont('helvetica', 'bold');
+doc.text('Relatório Completo de Horas Extras', pageWidth / 2, yOffset, { align: 'center' });
+yOffset += 10;
+
+// Data de Geração
+doc.setFontSize(10);
+doc.setFont('helvetica', 'normal');
+doc.text(`Gerado em: ${new Date().toLocaleDateString('pt-BR')} ${new Date().toLocaleTimeString('pt-BR')}`, pageWidth / 2, yOffset, { align: 'center' });
+yOffset += 20; // Espaço após a data de geração
+
+// Resumo de Saldo de Horas por Líder (usando autoTable para melhor organização)
+doc.setFontSize(18);
+doc.setFont('helvetica', 'bold');
+doc.text('Saldo de Horas por Líder', margin, yOffset);
+yOffset += 10;
+
+const leaderSummary = {};
+overtimeData.forEach(record => {
+    const leader = record.Líder;
+    if (!leader) return;
+    if (!leaderSummary[leader]) {
+        leaderSummary[leader] = { positive: 0, negative: 0 };
     }
+    const saldoMinutes = timeToMinutes(record['Turno']); // Usando 'Turno' como Saldo Final
+    if (saldoMinutes > 0) {
+        leaderSummary[leader].positive += saldoMinutes;
+    } else {
+        leaderSummary[leader].negative += Math.abs(saldoMinutes);
+    }
+});
 
-    yOffset = logoY + logoHeight + 15; // Começa o conteúdo após o logo + margem
+const leaderTableHeaders = [['Líder', 'Horas Positivas', 'Horas Negativas']];
+const leaderTableData = Object.keys(leaderSummary).map(leader => [
+    leader,
+    minutesToTime(leaderSummary[leader].positive),
+    minutesToTime(leaderSummary[leader].negative)
+]);
 
-    // Título Principal
-    doc.setFontSize(24);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Relatório Completo de Horas Extras', pageWidth / 2, yOffset, { align: 'center' });
-    yOffset += 10;
+doc.autoTable({
+    startY: yOffset,
+    head: leaderTableHeaders,
+    body: leaderTableData,
+    theme: 'grid', // Usar 'grid' para bordas visíveis
+    styles: {
+        fontSize: 10,
+        cellPadding: 3,
+        valign: 'middle',
+        overflow: 'linebreak',
+        lineColor: [220, 230, 237], // Cor da borda da célula
+        lineWidth: 0.1
+    },
+    headStyles: {
+        fillColor: [74, 144, 226], // Cor de fundo do cabeçalho (primary-color)
+        textColor: [255, 255, 255], // Texto branco
+        fontStyle: 'bold',
+        halign: 'center'
+    },
+    bodyStyles: {
+        textColor: [52, 73, 94] // Cor do texto do corpo
+    },
+    columnStyles: {
+        0: { cellWidth: 'auto' },
+        1: { halign: 'center' },
+        2: { halign: 'center' }
+    },
+    margin: { left: margin, right: margin }
+});
+yOffset = doc.autoTable.previous.finalY + 20; // Atualiza yOffset após a tabela de líderes
 
-    // Data de Geração
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    doc.text(`Gerado em: ${new Date().toLocaleDateString('pt-BR')} ${new Date().toLocaleTimeString('pt-BR')}`, pageWidth / 2, yOffset, { align: 'center' });
-    yOffset += 20; // Espaço após a data de geração
+// Tabela de Todos os Registros
+doc.setFontSize(18);
+doc.setFont('helvetica', 'bold');
+doc.text('Todos os Registros de Horas Extras', margin, yOffset);
+yOffset += 10;
 
-    // Resumo de Saldo de Horas por Líder (usando autoTable para melhor organização)
-    doc.setFontSize(18);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Saldo de Horas por Líder', margin, yOffset);
-    yOffset += 10;
-
-    const leaderSummary = {};
-    overtimeData.forEach(record => {
-        const leader = record.Líder;
-        if (!leader) return;
-        if (!leaderSummary[leader]) {
-            leaderSummary[leader] = { positive: 0, negative: 0 };
-        }
-        const saldoMinutes = timeToMinutes(record['Turno']); // Usando 'Turno' como Saldo Final
-        if (saldoMinutes > 0) {
-            leaderSummary[leader].positive += saldoMinutes;
-        } else {
-            leaderSummary[leader].negative += Math.abs(saldoMinutes);
-        }
-    });
-
-    const leaderTableHeaders = [['Líder', 'Horas Positivas', 'Horas Negativas']];
-    const leaderTableData = Object.keys(leaderSummary).map(leader => [
-        leader,
-        minutesToTime(leaderSummary[leader].positive),
-        minutesToTime(leaderSummary[leader].negative)
-    ]);
-
-    doc.autoTable({
-        startY: yOffset,
-        head: leaderTableHeaders,
-        body: leaderTableData,
-        theme: 'grid', // Usar 'grid' para bordas visíveis
-        styles: {
-            fontSize: 10,
-            cellPadding: 3,
-            valign: 'middle',
-            overflow: 'linebreak',
-            lineColor: [220, 230, 237], // Cor da borda da célula
-            lineWidth: 0.1
-        },
-        headStyles: {
-            fillColor: [74, 144, 226], // Cor de fundo do cabeçalho (primary-color)
-            textColor: [255, 255, 255], // Texto branco
-            fontStyle: 'bold',
-            halign: 'center'
-        },
-        bodyStyles: {
-            textColor: [52, 73, 94] // Cor do texto do corpo
-        },
-        columnStyles: {
-            0: { cellWidth: 'auto' },
-            1: { halign: 'center' },
-            2: { halign: 'center' }
-        },
-        margin: { left: margin, right: margin }
-    });
-    yOffset = doc.autoTable.previous.finalY + 20; // Atualiza yOffset após a tabela de líderes
-
-    // Tabela de Todos os Registros
-    doc.setFontSize(18);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Todos os Registros de Horas Extras', margin, yOffset);
-    yOffset += 10;
-
-    const tableHeaders = REQUIRED_DISPLAY_COLUMNS;
-    const tableData = overtimeData.map(record => {
-        return REQUIRED_DISPLAY_COLUMNS.map(col => {
-            let value = record.hasOwnProperty(col) ? record[col] : 'N/A';
-            if (col === 'Turno') { // Usando 'Turno' como Saldo Final
-                const minutes = timeToMinutes(value);
-                if (minutes === 0 && !isValidTimeFormat(value)) {
-                    return `${value} (Formato Inválido)`;
-                } else {
-                    return minutesToTime(minutes);
-                }
+const tableHeaders = REQUIRED_DISPLAY_COLUMNS;
+const tableData = overtimeData.map(record => {
+    return REQUIRED_DISPLAY_COLUMNS.map(col => {
+        let value = record.hasOwnProperty(col) ? record[col] : 'N/A';
+        if (col === 'Turno') { // Usando 'Turno' como Saldo Final
+            const minutes = timeToMinutes(value);
+            if (minutes === 0 && !isValidTimeFormat(value)) {
+                return `${value} (Formato Inválido)`;
+            } else {
+                return minutesToTime(minutes);
             }
-            return String(value);
-        });
-    });
-
-    doc.autoTable({
-        startY: yOffset,
-        head: [tableHeaders],
-        body: tableData,
-        theme: 'striped',
-        styles: {
-            fontSize: 8,
-            cellPadding: 2,
-            valign: 'middle',
-            overflow: 'linebreak',
-            lineColor: [220, 230, 237], // Cor da borda da célula
-            lineWidth: 0.1
-        },
-        headStyles: {
-            fillColor: [242, 244, 247], // #f2f4f7
-            textColor: [52, 73, 94], // #34495e
-            fontStyle: 'bold'
-        },
-        columnStyles: {
-            'Turno': { cellWidth: 25 } // Ajusta largura para Turno
-        },
-        margin: { left: margin, right: margin },
-        didDrawPage: function (data) {
-            // Footer
-            doc.setFontSize(10);
-            doc.setFont('helvetica', 'normal');
-            let str = "Página " + doc.internal.getNumberOfPages();
-            doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 10);
         }
+        return String(value);
     });
+});
 
-    doc.output('dataurlnewwindow');
-    console.log('generatePdfReport: PDF gerado e aberto em nova janela.');
+doc.autoTable({
+    startY: yOffset,
+    head: [tableHeaders],
+    body: tableData,
+    theme: 'striped',
+    styles: {
+        fontSize: 8,
+        cellPadding: 2,
+        valign: 'middle',
+        overflow: 'linebreak',
+        lineColor: [220, 230, 237], // Cor da borda da célula
+        lineWidth: 0.1
+    },
+    headStyles: {
+        fillColor: [242, 244, 247], // #f2f4f7
+        textColor: [52, 73, 94], // #34495e
+        fontStyle: 'bold'
+    },
+    columnStyles: {
+        'Turno': { cellWidth: 25 } // Ajusta largura para Turno
+    },
+    margin: { left: margin, right: margin },
+    didDrawPage: function (data) {
+        // Footer
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        let str = "Página " + doc.internal.getNumberOfPages();
+        doc.text(str, data.settings.margin.left, doc.internal.pageSize.height - 10);
+    }
+});
+
+doc.output('dataurlnewwindow');
+console.log('generatePdfReport: PDF gerado e aberto em nova janela.');
 
 } catch (error) {
-    console.error('generatePdfReport: Erro ao gerar PDF:', error);
-    alert(`Erro ao gerar relatório PDF: ${error.message}. Verifique o console para mais detalhes.`);
+console.error('generatePdfReport: Erro ao gerar PDF:', error);
+alert(`Erro ao gerar relatório PDF: ${error.message}. Verifique o console para mais detalhes.`);
 } finally {
-    printPdfButton.disabled = false;
-    pdfSpinner.classList.add('hidden'); // Esconde o spinner
-    console.log('generatePdfReport: Finalizado.');
+printPdfButton.disabled = false;
+pdfSpinner.classList.add('hidden'); // Esconde o spinner
+console.log('generatePdfReport: Finalizado.');
 }
 }
 
@@ -2859,88 +2859,88 @@ downloadSpecificPdfButton.disabled = true;
 async function loadDataFromHorasHtml() {
 console.log('loadDataFromHorasHtml: Iniciando carregamento de dados do horas.html');
 try {
-    const response = await fetch('/horas.html');
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const htmlText = await response.text();
-    
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlText, 'text/html');
-    const table = doc.querySelector('table');
+const response = await fetch('/horas.html');
+if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+}
+const htmlText = await response.text();
 
-    if (!table) {
-        throw new Error('Tabela não encontrada no horas.html');
-    }
+const parser = new DOMParser();
+const doc = parser.parseFromString(htmlText, 'text/html');
+const table = doc.querySelector('table');
 
-    const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
-    const newOvertimeData = [];
-    const today = new Date().toISOString().slice(0, 10); // Formato YYYY-MM-DD
+if (!table) {
+    throw new Error('Tabela não encontrada no horas.html');
+}
 
-    table.querySelectorAll('tbody tr').forEach(row => {
-        const rowData = {};
-        Array.from(row.querySelectorAll('td')).forEach((cell, index) => {
-            const headerName = headers[index];
-            let cellValue = cell.textContent.trim();
-            
-            // Mapeamento de colunas para o formato esperado
-            if (headerName === 'N° Chapa') {
-                rowData['CHAPA'] = cellValue;
-            } else if (headerName === 'Nome') {
-                rowData['Nome'] = cellValue;
-            } else if (headerName === 'Função') {
-                rowData['Função'] = cellValue;
-            } else if (headerName === 'Líder') {
-                rowData['Líder'] = cellValue;
-            } else if (headerName === 'Turno') {
-                rowData['Turno'] = cellValue; // Este é o campo que contém as horas (saldo)
-            } else if (headerName === 'Status') {
-                rowData['Status'] = cellValue;
-            }
-        });
-        newOvertimeData.push(rowData);
+const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
+const newOvertimeData = [];
+const today = new Date().toISOString().slice(0, 10); // Formato YYYY-MM-DD
 
-        // Adiciona ao histórico
-        const chapa = String(rowData.CHAPA);
-        const saldoMinutes = timeToMinutes(rowData['Turno']); // Usando 'Turno' como Saldo Final
-        const positiveMinutes = Math.max(0, saldoMinutes);
-
-        if (!employeeHistory[chapa]) {
-            employeeHistory[chapa] = [];
-        }
-        const existingEntryIndex = employeeHistory[chapa].findIndex(entry => entry.date === today);
-        if (existingEntryIndex > -1) {
-            employeeHistory[chapa][existingEntryIndex] = { date: today, totalMinutes: saldoMinutes, positiveMinutes: positiveMinutes };
-        } else {
-            employeeHistory[chapa].push({ date: today, totalMinutes: saldoMinutes, positiveMinutes: positiveMinutes });
+table.querySelectorAll('tbody tr').forEach(row => {
+    const rowData = {};
+    Array.from(row.querySelectorAll('td')).forEach((cell, index) => {
+        const headerName = headers[index];
+        let cellValue = cell.textContent.trim();
+        
+        // Mapeamento de colunas para o formato esperado
+        if (headerName === 'N° Chapa') {
+            rowData['CHAPA'] = cellValue;
+        } else if (headerName === 'Nome') {
+            rowData['Nome'] = cellValue;
+        } else if (headerName === 'Função') {
+            rowData['Função'] = cellValue;
+        } else if (headerName === 'Líder') {
+            rowData['Líder'] = cellValue;
+        } else if (headerName === 'Turno') {
+            rowData['Turno'] = cellValue; // Este é o campo que contém as horas (saldo)
+        } else if (headerName === 'Status') {
+            rowData['Status'] = cellValue;
         }
     });
+    newOvertimeData.push(rowData);
 
-    overtimeData = newOvertimeData;
-    console.log('Dados carregados do horas.html:', overtimeData);
-    console.log('Histórico de funcionários atualizado:', employeeHistory);
+    // Adiciona ao histórico
+    const chapa = String(rowData.CHAPA);
+    const saldoMinutes = timeToMinutes(rowData['Turno']); // Usando 'Turno' como Saldo Final
+    const positiveMinutes = Math.max(0, saldoMinutes);
 
-    // Habilita os botões após o carregamento bem-sucedido
-    searchButtonModal.disabled = false;
-    showAllButton.disabled = false;
-    printPdfButton.disabled = false; 
-    searchByCargoButton.disabled = false; 
-    sendWhatsappButton.disabled = false; 
-    downloadSpecificPdfButton.disabled = false; 
+    if (!employeeHistory[chapa]) {
+        employeeHistory[chapa] = [];
+    }
+    const existingEntryIndex = employeeHistory[chapa].findIndex(entry => entry.date === today);
+    if (existingEntryIndex > -1) {
+        employeeHistory[chapa][existingEntryIndex] = { date: today, totalMinutes: saldoMinutes, positiveMinutes: positiveMinutes };
+    } else {
+        employeeHistory[chapa].push({ date: today, totalMinutes: saldoMinutes, positiveMinutes: positiveMinutes });
+    }
+});
 
-    displayRecordsAndChart(overtimeData, 'Todos os Registros'); // Exibe todos os registros e o gráfico após o carregamento
-    cargoInputAdmin.value = ''; // Limpa o campo de busca por cargo
+overtimeData = newOvertimeData;
+console.log('Dados carregados do horas.html:', overtimeData);
+console.log('Histórico de funcionários atualizado:', employeeHistory);
+
+// Habilita os botões após o carregamento bem-sucedido
+searchButtonModal.disabled = false;
+showAllButton.disabled = false;
+printPdfButton.disabled = false; 
+searchByCargoButton.disabled = false; 
+sendWhatsappButton.disabled = false; 
+downloadSpecificPdfButton.disabled = false; 
+
+displayRecordsAndChart(overtimeData, 'Todos os Registros'); // Exibe todos os registros e o gráfico após o carregamento
+cargoInputAdmin.value = ''; // Limpa o campo de busca por cargo
 
 } catch (error) {
-    console.error('Erro ao carregar dados do horas.html:', error);
-    allRecordsTable.innerHTML = '<p class="error">Erro ao carregar dados do arquivo horas.html. Verifique o console para detalhes.</p>';
-    // Garante que os botões permaneçam desabilitados em caso de erro
-    searchButtonModal.disabled = true;
-    showAllButton.disabled = true;
-    printPdfButton.disabled = true; 
-    searchByCargoButton.disabled = true; 
-    sendWhatsappButton.disabled = true; 
-    downloadSpecificPdfButton.disabled = true; 
+console.error('Erro ao carregar dados do horas.html:', error);
+allRecordsTable.innerHTML = '<p class="error">Erro ao carregar dados do arquivo horas.html. Verifique o console para detalhes.</p>';
+// Garante que os botões permaneçam desabilitados em caso de erro
+searchButtonModal.disabled = true;
+showAllButton.disabled = true;
+printPdfButton.disabled = true; 
+searchByCargoButton.disabled = true; 
+sendWhatsappButton.disabled = true; 
+downloadSpecificPdfButton.disabled = true; 
 }
 }
 
@@ -2971,33 +2971,33 @@ console.log('searchButtonModal: Dados de horas extras carregados (overtimeData.l
 console.log('searchButtonModal: Conteúdo de overtimeData (primeiros 5 registros):', overtimeData.slice(0, 5)); // NOVO LOG
 
 if (overtimeData.length === 0) {
-    textResults.innerHTML = '<p class="error">Nenhum dado de horas extras carregado. Por favor, verifique o arquivo horas.html.</p>';
-    return;
+textResults.innerHTML = '<p class="error">Nenhum dado de horas extras carregado. Por favor, verifique o arquivo horas.html.</p>';
+return;
 }
 
 if (!chapa) {
-    textResults.innerHTML = '<p class="error">Por favor, digite o número da Chapa.</p>';
-    return;
+textResults.innerHTML = '<p class="error">Por favor, digite o número da Chapa.</p>';
+return;
 }
 
 const foundRecord = overtimeData.find(record => String(record.CHAPA) === chapa);
 console.log('searchButtonModal: Registro encontrado:', foundRecord); // NOVO LOG
 
 if (foundRecord) {
-    currentConsultedRecord = foundRecord; // Armazena o registro encontrado
+currentConsultedRecord = foundRecord; // Armazena o registro encontrado
 
-    if (registeredUsers[chapa]) {
-        // Usuário já cadastrado, pede a senha
-        hideColaboradorModal(); // Esconde o modal principal de colaborador
-        showPasswordPromptModal(chapa);
-    } else {
-        // Primeiro acesso, pede para cadastrar
-        hideColaboradorModal(); // Esconde o modal principal de colaborador
-        showRegistrationModal(chapa);
-    }
+if (registeredUsers[chapa]) {
+    // Usuário já cadastrado, pede a senha
+    hideColaboradorModal(); // Esconde o modal principal de colaborador
+    showPasswordPromptModal(chapa);
 } else {
-    textResults.innerHTML = `<p class="error">Chapa "${chapa}" não encontrada.</p>`;
-    showHistoryButton.classList.add('hidden'); // Garante que o botão esteja oculto
+    // Primeiro acesso, pede para cadastrar
+    hideColaboradorModal(); // Esconde o modal principal de colaborador
+    showRegistrationModal(chapa);
+}
+} else {
+textResults.innerHTML = `<p class="error">Chapa "${chapa}" não encontrada.</p>`;
+showHistoryButton.classList.add('hidden'); // Garante que o botão esteja oculto
 }
 });
 
@@ -3012,17 +3012,17 @@ searchByCargoButton.addEventListener('click', () => {
 console.log('searchByCargoButton: Clicado');
 const cargo = cargoInputAdmin.value.trim();
 if (!cargo) {
-    alert('Por favor, digite um cargo para buscar.');
-    return;
+alert('Por favor, digite um cargo para buscar.');
+return;
 }
 
 if (overtimeData.length === 0) {
-    alert('Nenhum dado carregado para buscar. Por favor, verifique o arquivo horas.html.');
-    return;
+alert('Nenhum dado carregado para buscar. Por favor, verifique o arquivo horas.html.');
+return;
 }
 
 const filteredData = overtimeData.filter(record => 
-    record.Função && String(record.Função).toLowerCase().includes(cargo.toLowerCase()) // Usando 'Função'
+record.Função && String(record.Função).toLowerCase().includes(cargo.toLowerCase()) // Usando 'Função'
 );
 
 displayRecordsAndChart(filteredData, `Registros Filtrados por Cargo: "${cargo}"`);
@@ -3035,14 +3035,14 @@ printPdfButton.addEventListener('click', generatePdfReport);
 chapaWhatsappInput.addEventListener('input', () => {
 const chapa = chapaWhatsappInput.value.trim();
 if (chapa && overtimeData.length > 0) {
-    const foundRecord = overtimeData.find(record => String(record.CHAPA) === chapa);
-    if (foundRecord) {
-        whatsappCollaboratorNameDisplay.textContent = `(${foundRecord.Nome})`;
-    } else {
-        whatsappCollaboratorNameDisplay.textContent = '(Colaborador não encontrado)';
-    }
+const foundRecord = overtimeData.find(record => String(record.CHAPA) === chapa);
+if (foundRecord) {
+    whatsappCollaboratorNameDisplay.textContent = `(${foundRecord.Nome})`;
 } else {
-    whatsappCollaboratorNameDisplay.textContent = '';
+    whatsappCollaboratorNameDisplay.textContent = '(Colaborador não encontrado)';
+}
+} else {
+whatsappCollaboratorNameDisplay.textContent = '';
 }
 });
 
@@ -3063,18 +3063,18 @@ atualizarDadosTabContent.classList.add('hidden');
 
 // Ativa a aba selecionada e mostra seu conteúdo
 if (tabName === 'consultarHoras') {
-    consultarHorasTabButton.classList.add('active');
-    consultarHorasTabContent.classList.remove('hidden');
+consultarHorasTabButton.classList.add('active');
+consultarHorasTabContent.classList.remove('hidden');
 } else if (tabName === 'atualizarDados') {
-    // Verifica se há um registro consultado antes de permitir a aba de atualização
-    if (!currentConsultedRecord) {
-        alert('Por favor, consulte sua chapa primeiro para acessar a área de atualização de dados.');
-        showTab('consultarHoras'); // Volta para a aba de consulta
-        return;
-    }
-    atualizarDadosTabButton.classList.add('active');
-    atualizarDadosTabContent.classList.remove('hidden');
-    populateUpdateDataForm(); // Preenche o formulário ao mostrar a aba
+// Verifica se há um registro consultado antes de permitir a aba de atualização
+if (!currentConsultedRecord) {
+    alert('Por favor, consulte sua chapa primeiro para acessar a área de atualização de dados.');
+    showTab('consultarHoras'); // Volta para a aba de consulta
+    return;
+}
+atualizarDadosTabButton.classList.add('active');
+atualizarDadosTabContent.classList.remove('hidden');
+populateUpdateDataForm(); // Preenche o formulário ao mostrar a aba
 }
 }
 
@@ -3085,25 +3085,25 @@ atualizarDadosTabButton.addEventListener('click', () => showTab('atualizarDados'
 // NOVO: Função para preencher o formulário de atualização de dados
 function populateUpdateDataForm() {
 if (currentConsultedRecord) {
-    const chapa = String(currentConsultedRecord.CHAPA);
-    const userData = registeredUsers[chapa];
+const chapa = String(currentConsultedRecord.CHAPA);
+const userData = registeredUsers[chapa];
 
-    // Nome Completo, Chapa e Cargo são preenchidos com dados do Excel e são somente leitura
-    updateNomeCompletoInput.value = currentConsultedRecord.Nome || '';
-    updateChapaInput.value = chapa; // Somente leitura
-    updateCargoInput.value = currentConsultedRecord.Função || ''; // Usando 'Função' como Cargo, somente leitura
-    
-    // Telefone é preenchido com dados do registro do usuário (se existir)
-    updateTelefoneInput.value = userData ? userData.telefone : '';
+// Nome Completo, Chapa e Cargo são preenchidos com dados do Excel e são somente leitura
+updateNomeCompletoInput.value = currentConsultedRecord.Nome || '';
+updateChapaInput.value = chapa; // Somente leitura
+updateCargoInput.value = currentConsultedRecord.Função || ''; // Usando 'Função' como Cargo, somente leitura
 
-    // Limpa os campos de senha e frase secreta por segurança
-    updateNewPasswordInput.value = '';
-    updateConfirmNewPasswordInput.value = '';
-    updateSecretPhraseInput.value = '';
-    updateConfirmSecretPhraseInput.value = '';
+// Telefone é preenchido com dados do registro do usuário (se existir)
+updateTelefoneInput.value = userData ? userData.telefone : '';
 
-    updateDataErrorMessage.classList.add('hidden');
-    updateDataSuccessMessage.classList.add('hidden');
+// Limpa os campos de senha e frase secreta por segurança
+updateNewPasswordInput.value = '';
+updateConfirmNewPasswordInput.value = '';
+updateSecretPhraseInput.value = '';
+updateConfirmSecretPhraseInput.value = '';
+
+updateDataErrorMessage.classList.add('hidden');
+updateDataSuccessMessage.classList.add('hidden');
 }
 }
 
@@ -3111,10 +3111,10 @@ if (currentConsultedRecord) {
 saveChangesButton.addEventListener('click', () => {
 console.log('saveChangesButton: Clicado');
 if (!currentConsultedRecord) {
-    updateDataErrorMessage.textContent = 'Nenhum colaborador selecionado para atualização.';
-    updateDataErrorMessage.classList.remove('hidden');
-    updateDataSuccessMessage.classList.add('hidden');
-    return;
+updateDataErrorMessage.textContent = 'Nenhum colaborador selecionado para atualização.';
+updateDataErrorMessage.classList.remove('hidden');
+updateDataSuccessMessage.classList.add('hidden');
+return;
 }
 
 const chapa = String(currentConsultedRecord.CHAPA);
@@ -3131,51 +3131,51 @@ let hasChanges = false;
 
 // Verifica e coleta alterações no telefone
 if (newTelefone !== (userData ? userData.telefone : '')) {
-    changes.telefone = newTelefone;
-    hasChanges = true;
+changes.telefone = newTelefone;
+hasChanges = true;
 }
 
 // Verifica e coleta alterações na senha
 if (newPassword || confirmNewPassword) {
-    if (newPassword !== confirmNewPassword) {
-        updateDataErrorMessage.textContent = 'As novas senhas não coincidem.';
-        updateDataErrorMessage.classList.remove('hidden');
-        updateDataSuccessMessage.classList.add('hidden');
-        return;
-    }
-    if (newPassword.length < 6) {
-        updateDataErrorMessage.textContent = 'A nova senha deve ter pelo menos 6 caracteres.';
-        updateDataErrorMessage.classList.remove('hidden');
-        updateDataSuccessMessage.classList.add('hidden');
-        return;
-    }
-    changes.password = newPassword;
-    hasChanges = true;
+if (newPassword !== confirmNewPassword) {
+    updateDataErrorMessage.textContent = 'As novas senhas não coincidem.';
+    updateDataErrorMessage.classList.remove('hidden');
+    updateDataSuccessMessage.classList.add('hidden');
+    return;
+}
+if (newPassword.length < 6) {
+    updateDataErrorMessage.textContent = 'A nova senha deve ter pelo menos 6 caracteres.';
+    updateDataErrorMessage.classList.remove('hidden');
+    updateDataSuccessMessage.classList.add('hidden');
+    return;
+}
+changes.password = newPassword;
+hasChanges = true;
 }
 
 // Verifica e coleta alterações na frase secreta
 if (newSecretPhrase || confirmNewSecretPhrase) {
-    if (newSecretPhrase !== confirmNewSecretPhrase) {
-        updateDataErrorMessage.textContent = 'As novas frases secretas não coincidem.';
-        updateDataErrorMessage.classList.remove('hidden');
-        updateDataSuccessMessage.classList.add('hidden');
-        return;
-    }
-    if (newSecretPhrase.length < 3) {
-        updateDataErrorMessage.textContent = 'A nova frase secreta deve ter pelo menos 3 caracteres.';
-        updateDataErrorMessage.classList.remove('hidden');
-        updateDataSuccessMessage.classList.add('hidden');
-        return;
-    }
-    changes.secretPhrase = newSecretPhrase;
-    hasChanges = true;
-}
-
-if (!hasChanges) {
-    updateDataErrorMessage.textContent = 'Nenhuma alteração detectada para salvar.';
+if (newSecretPhrase !== confirmNewSecretPhrase) {
+    updateDataErrorMessage.textContent = 'As novas frases secretas não coincidem.';
     updateDataErrorMessage.classList.remove('hidden');
     updateDataSuccessMessage.classList.add('hidden');
     return;
+}
+if (newSecretPhrase.length < 3) {
+    updateDataErrorMessage.textContent = 'A nova frase secreta deve ter pelo menos 3 caracteres.';
+    updateDataErrorMessage.classList.remove('hidden');
+    updateDataSuccessMessage.classList.add('hidden');
+    return;
+}
+changes.secretPhrase = newSecretPhrase;
+hasChanges = true;
+}
+
+if (!hasChanges) {
+updateDataErrorMessage.textContent = 'Nenhuma alteração detectada para salvar.';
+updateDataErrorMessage.classList.remove('hidden');
+updateDataSuccessMessage.classList.add('hidden');
+return;
 }
 
 // Se houver alterações, mostra o modal de confirmação de token
@@ -3189,17 +3189,17 @@ updateDataSuccessMessage.classList.add('hidden');
 manageChapaInput.addEventListener('input', () => {
 const chapa = manageChapaInput.value.trim();
 if (chapa && overtimeData.length > 0) {
-    const foundRecord = overtimeData.find(record => String(record.CHAPA) === chapa);
-    if (foundRecord) {
-        manageCollaboratorNameDisplay.textContent = `(${foundRecord.Nome})`;
-        const userData = registeredUsers[chapa];
-        managePhoneNumberInput.value = userData ? userData.telefone : ''; // Preenche o telefone se já cadastrado
-    } else {
-        manageCollaboratorNameDisplay.textContent = '(Colaborador não encontrado)';
-    }
+const foundRecord = overtimeData.find(record => String(record.CHAPA) === chapa);
+if (foundRecord) {
+    manageCollaboratorNameDisplay.textContent = `(${foundRecord.Nome})`;
+    const userData = registeredUsers[chapa];
+    managePhoneNumberInput.value = userData ? userData.telefone : ''; // Preenche o telefone se já cadastrado
 } else {
-    manageCollaboratorNameDisplay.textContent = '';
-    managePhoneNumberInput.value = '';
+    manageCollaboratorNameDisplay.textContent = '(Colaborador não encontrado)';
+}
+} else {
+manageCollaboratorNameDisplay.textContent = '';
+managePhoneNumberInput.value = '';
 }
 managePhoneNumberStatusMessage.classList.add('hidden'); // Esconde a mensagem de status ao digitar
 });
@@ -3213,31 +3213,31 @@ const telefone = managePhoneNumberInput.value.trim();
 managePhoneNumberStatusMessage.classList.add('hidden'); // Esconde mensagens anteriores
 
 if (!chapa || !telefone) {
-    managePhoneNumberStatusMessage.textContent = 'Por favor, preencha a chapa e o telefone.';
-    managePhoneNumberStatusMessage.className = 'error';
-    managePhoneNumberStatusMessage.classList.remove('hidden');
-    return;
+managePhoneNumberStatusMessage.textContent = 'Por favor, preencha a chapa e o telefone.';
+managePhoneNumberStatusMessage.className = 'error';
+managePhoneNumberStatusMessage.classList.remove('hidden');
+return;
 }
 
 const foundRecord = overtimeData.find(record => String(record.CHAPA) === chapa);
 if (!foundRecord) {
-    managePhoneNumberStatusMessage.textContent = `Chapa "${chapa}" não encontrada nos dados carregados.`;
-    managePhoneNumberStatusMessage.className = 'error';
-    managePhoneNumberStatusMessage.classList.remove('hidden');
-    return;
+managePhoneNumberStatusMessage.textContent = `Chapa "${chapa}" não encontrada nos dados carregados.`;
+managePhoneNumberStatusMessage.className = 'error';
+managePhoneNumberStatusMessage.classList.remove('hidden');
+return;
 }
 
 // Se o usuário não existe, cria um novo registro básico
 if (!registeredUsers[chapa]) {
-    registeredUsers[chapa] = {
-        nomeCompleto: foundRecord.Nome, // Pega o nome do Excel
-        telefone: telefone,
-        password: null, // Sem senha inicial
-        secretPhrase: null // Sem frase secreta inicial
-    };
+registeredUsers[chapa] = {
+    nomeCompleto: foundRecord.Nome, // Pega o nome do Excel
+    telefone: telefone,
+    password: null, // Sem senha inicial
+    secretPhrase: null // Sem frase secreta inicial
+};
 } else {
-    // Se o usuário existe, apenas atualiza o telefone
-    registeredUsers[chapa].telefone = telefone;
+// Se o usuário existe, apenas atualiza o telefone
+registeredUsers[chapa].telefone = telefone;
 }
 
 managePhoneNumberStatusMessage.textContent = `Telefone para chapa ${chapa} (${foundRecord.Nome}) salvo com sucesso!`;
